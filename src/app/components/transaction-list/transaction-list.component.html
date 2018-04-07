@@ -1,0 +1,9 @@
+<form>
+    <button (click)="getAll()"> Get transactions</button>
+</form>
+
+<!-- <ul *ngIf="transactions.length>0"> -->
+  <li *ngFor="let transaction of transactions">
+    <app-transaction-detail [transaction]="transaction"></app-transaction-detail>
+  </li>
+<!-- </ul> -->
