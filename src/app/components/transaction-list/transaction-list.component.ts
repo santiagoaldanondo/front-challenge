@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Transaction } from './../../shared/models/transaction.model';
+import { Transaction, Action, CurrencyCode } from './../../shared/models/transaction.model';
 import { TransactionService } from './../../shared/services/transaction.service';
+import { EnumToArrayPipe } from './../../shared/pipes/enum-to-array.pipe'
 
 @Component({
   selector: 'app-transaction-list',
@@ -8,18 +9,37 @@ import { TransactionService } from './../../shared/services/transaction.service'
   styleUrls: ['./transaction-list.component.css']
 })
 export class TransactionListComponent implements OnInit {
+
   transactions: Array<Transaction> = [];
+  actionObject = Action;
+  currencyCodeObject = CurrencyCode;
+  action: Action | undefined = undefined;
+  currencyCode: CurrencyCode | undefined = undefined;
+  orderBy: string | undefined = undefined;
+  noResults: Boolean = false;
+  errorMessage;
 
   constructor(private transactionService: TransactionService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  getAll() {
-    this.transactionService.getAll().subscribe(
-      transactions => this.transactions = transactions,
-      error => console.log(error)
+  getTransactions() {
+    this.transactionService.getTransactions(
+      this.action, 
+      this.currencyCode, 
+      this.orderBy)
+    .subscribe(
+      transactions => {
+        this.transactions = transactions;
+        if (transactions.length === 0) {
+          this.noResults = true;
+        } else {
+          this.noResults = false;
+        }
+      },
+      error => {
+        this.errorMessage = error.message
+      } 
     );
   }
-
 }

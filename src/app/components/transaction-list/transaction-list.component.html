@@ -1,9 +1,47 @@
-<form>
-    <button (click)="getAll()"> Get transactions</button>
+<form (ngSubmit)="getTransactions()" #createForm="ngForm">
+  
+  <div>
+    <label for="action">Action</label>
+    <select name="action" [(ngModel)]="action">
+      <option [ngValue]="undefined">any</option>
+      <option *ngFor="let action of actionObject | enumToArray">
+        {{action}} 
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="currencyCode">Currency</label>
+    <select name="currencyCode" [(ngModel)]="currencyCode">
+      <option [ngValue]="undefined">any</option>
+      <option *ngFor="let currencyCode of currencyCodeObject | enumToArray"> 
+        {{currencyCode}} 
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="orderBy">Order by</label>
+    <select name="orderBy" [(ngModel)]="orderBy">
+      <option [ngValue]="undefined">default</option>
+      <option [ngValue]="'date'">date</option>
+      <option [ngValue]="'-date'">-date</option>
+    </select>
+  </div>
+
+  <button class="main-button" type="submit"> Search transactions </button>
 </form>
 
-<!-- <ul *ngIf="transactions.length>0"> -->
+<ul *ngIf="transactions.length>0">
   <li *ngFor="let transaction of transactions">
     <app-transaction-detail [transaction]="transaction"></app-transaction-detail>
   </li>
-<!-- </ul> -->
+</ul>
+
+<p *ngIf="noResults">
+  No transactions were found, try a different search
+</p>
+
+<p *ngIf="errorMessage">
+  {{errorMessage}}
+</p>

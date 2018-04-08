@@ -1,22 +1,24 @@
 import { Card } from './card.model'
 
-enum Currency {
-    EUR = "EUR",
-    USD = "USD",
-    JPY = "JPY"
+enum CurrencyCode {
+    EUR = 'EUR',
+    USD = 'USD',
+    JPY = 'JPY'
 }
 
 enum Action {
-    payment = "payment",
-    credit = "credit"
+    payment = 'payment',
+    credit = 'credit'
 }
 
-export class Transaction {
+class Transaction {
     action: Action;
     amount: number;
     brandId: number;
     card: Card;
-    currencyCode: Currency;
+    currencyCode: CurrencyCode;
     id: string;
     trackingCode: string;
 }
+
+export { CurrencyCode, Action, Transaction}

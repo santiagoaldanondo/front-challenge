@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail.component';
 import { TransactionService } from './shared/services/transaction.service'
+import { EnumToArrayPipe } from './shared/pipes/enum-to-array.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     TransactionDetailComponent,
     TransactionListComponent,
+    EnumToArrayPipe
   ],
   imports: [
     BrowserModule,

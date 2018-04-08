@@ -1,31 +1,26 @@
 # FrontChallenge
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+This project has been created using Angular CLI v1.7.4, Angular v5.2.9.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Start project
 
-## Code scaffolding
+In order to start the project:
+1. npm install
+2. npm run start
+3. browse localhost:4200
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+The following command can be run in order to build optimized files for production, saved in dist folder:
+ng build --prod --aot
 
-## Build
+## Files and folders
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+1. components folder with transaction-list and transaction-detail communicating via @Input and using TransactionService to get the info from the API.
 
-## Running unit tests
+2. shared/models folder with transaction and card models.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. shared/pipes is used for converting an enum object to an array in order to iterate with it in the views.
 
-## Running end-to-end tests
+4. shared/services has a static ApiService class for the main API parameters and TransactionService that extends the ApiService for transactions end point. More services could be created if we had more end points, such as users or accounts.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+5. The url, username and password are set in the environment files in environments folder. Username and password should always be saved in the backend, but having only a frontend there is no other option.   
 
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
