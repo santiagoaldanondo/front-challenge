@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail.component';
@@ -19,7 +21,8 @@ import { EnumToArrayPipe } from './shared/pipes/enum-to-array.pipe'
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
   providers: [TransactionService],
   bootstrap: [AppComponent]
