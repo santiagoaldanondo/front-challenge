@@ -1,31 +1,33 @@
-<form (ngSubmit)="getTransactions()" #createForm="ngForm">
+<h1 class="component-title"> Transactions' search </h1>
+
+<form (ngSubmit)="getTransactions()" #createForm="ngForm" class="main-form">
   
-  <div>
-    <label for="action">Action</label>
-    <select name="action" [(ngModel)]="action">
-      <option [ngValue]="undefined">any</option>
-      <option *ngFor="let action of actionObject | enumToArray">
+  <div class="main-group">
+    <label class="main-label" for="action">Action</label>
+    <select class="main-select" name="action" [(ngModel)]="action">
+      <option class="main-option" [ngValue]="undefined">-- any --</option>
+      <option class="main-option" *ngFor="let action of actionObject | enumToArray">
         {{action}} 
       </option>
     </select>
   </div>
 
-  <div>
-    <label for="currencyCode">Currency</label>
-    <select name="currencyCode" [(ngModel)]="currencyCode">
-      <option [ngValue]="undefined">any</option>
-      <option *ngFor="let currencyCode of currencyCodeObject | enumToArray"> 
+  <div class="main-group">
+    <label class="main-label" for="currencyCode">Currency</label>
+    <select class="main-select" name="currencyCode" [(ngModel)]="currencyCode">
+      <option class="main-option" [ngValue]="undefined">-- any --</option>
+      <option class="main-option" *ngFor="let currencyCode of currencyCodeObject | enumToArray"> 
         {{currencyCode}} 
       </option>
     </select>
   </div>
 
-  <div>
-    <label for="orderBy">Order by</label>
-    <select name="orderBy" [(ngModel)]="orderBy">
-      <option [ngValue]="undefined">default</option>
-      <option [ngValue]="'date'">date</option>
-      <option [ngValue]="'-date'">-date</option>
+  <div class="main-group">
+    <label class="main-label" for="orderBy">Order by</label>
+    <select class="main-select" name="orderBy" [(ngModel)]="orderBy">
+      <option class="main-option" [ngValue]="undefined">-- default --</option>
+      <option class="main-option" [ngValue]="'date'">date</option>
+      <option class="main-option" [ngValue]="'-date'">-date</option>
     </select>
   </div>
 
@@ -38,10 +40,10 @@
   </li>
 </ul>
 
-<p *ngIf="noResults">
+<p *ngIf="noResults" class="message">
   No transactions were found, try a different search
 </p>
 
-<p *ngIf="errorMessage">
+<p *ngIf="errorMessage" class="message error">
   {{errorMessage}}
 </p>

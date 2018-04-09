@@ -30,6 +30,7 @@ export class TransactionListComponent implements OnInit {
       this.orderBy)
     .subscribe(
       transactions => {
+        this.errorMessage = undefined
         this.transactions = transactions;
         if (transactions.length === 0) {
           this.noResults = true;

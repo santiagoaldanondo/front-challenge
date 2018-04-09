@@ -8,10 +8,15 @@ import { Transaction } from './../../shared/models/transaction.model';
 })
 export class TransactionDetailComponent implements OnInit {
   @Input() transaction: Transaction;
+  cardVisible: Boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleCard() {
+    this.cardVisible = !this.cardVisible;
   }
 
 }

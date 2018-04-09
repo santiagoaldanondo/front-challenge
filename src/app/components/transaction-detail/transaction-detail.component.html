@@ -1,9 +1,18 @@
-<div>
-  <p>{{transaction.action}}</p>
-  <p>{{transaction.amount}}</p>
-  <p>{{transaction.brandId}}</p>
-  <p>{{transaction.card}}</p>
-  <p>{{transaction.currencyCode}}</p>
-  <p>{{transaction.id}}</p>
-  <p>{{transaction.trackingCode}}</p>
-</div>
+<p>Id: </p>
+  <p><small>{{transaction.id}}</small></p>
+<p>Tracking code:</p> 
+  <p><small>{{transaction.trackingCode}}</small></p>
+<p>Action: <small>{{transaction.action}}</small></p>
+<p>Amount: <small>{{transaction.amount}}</small></p>
+<p>BrandId: <small>{{transaction.brandId}}</small></p>
+<p>Currency Code: <small>{{transaction.currencyCode}}</small></p>
+<p class="toggleCard" (click)="toggleCard()">Card details (click to reveal)</p>
+  <ul *ngIf="cardVisible">
+    <li>Expiry month: <small>{{transaction.card.expiryMonth}}</small></li> 
+    <li>Expiry year: <small>{{transaction.card.expiryYear}}</small></li> 
+    <li>Card number: 
+      <small>{{transaction.card.firstSixDigits + 'xxxxxx' + transaction.card.lastFourDigits}}</small>
+    </li> 
+    <li>Holder name: <small>{{transaction.card.holderName}}</small></li> 
+  </ul>
+

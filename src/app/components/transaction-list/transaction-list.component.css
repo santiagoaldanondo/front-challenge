@@ -1,0 +1,85 @@
+ul {
+    text-align: left;
+    margin: 20px 10vw 40px;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+    vertical-align: top; 
+    color: #292658;
+    background: linear-gradient(to bottom, #efefff, #eeeeff);
+    margin: 1vw;
+    padding: 8px;
+    border: 1px solid #dedeff;
+    border-radius: 4px;    
+}
+
+.main-form {
+    text-align: center;
+    font-weight: bold;
+    color: #292658;
+    margin: 5vh auto;
+}
+
+.main-group {
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+}
+
+.main-label {
+    margin: 10px;
+}
+
+.main-select {
+    width: 80px;
+    color: #292658;    
+    background-color: #aaccdd;
+    padding: 2px;
+    border-radius: 2px;    
+}
+
+.main-option {
+    color: #292658;
+    background-color: #ccddee;
+}
+
+.main-button {
+    display: block;
+    font-weight: bold;
+    color: #2768ba;
+    background: linear-gradient(to bottom, #ccddee, #aaccdd);
+    margin: 20px auto;
+    padding: 8px;
+    border: 1px solid #2768ba;
+    border-radius: 4px;
+}
+
+.main-button:hover {
+    color: #ccddee;
+    background: #2768ba;
+    border: 1px solid #ccddee;
+}
+
+.component-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    color: #2768ba;
+    margin: 40px auto;
+}
+
+.message {
+    text-align: center;
+    font-weight: bold;
+    color: #E16756;
+    margin: 2vh auto;
+}
+
+.error {
+    color: #d32;
+}
+
+  
